@@ -1,0 +1,115 @@
+.container{
+  display: inline-table;
+  width: 650px;
+  height: 600px;
+
+}
+.box{
+  background-color: olive;
+  width: 200px;
+  height: 200px;
+  display: inline-block;
+  margin-right: 5px;
+}
+
+.box:hover{
+  opacity: 0.5;
+
+}
+
+h1{
+  position: relative;
+  text-align: center;
+  color: green;
+}
+#radioButtons{
+  position: relative;
+  right: -640px;
+  top: -600px;
+}
+
+.cross{
+  background-color: red;
+  width: 200px;
+  height: 200px;
+  display: inline-block;
+  margin-right: 5px;
+
+}
+
+.naught{
+  background-color: blue;
+  width: 200px;
+  height: 200px;
+  display: inline-block;
+  margin-right: 5px;
+}
+
+/*
+#box1{
+  background-color: grey;
+  width: 200px;
+  height: 200px;
+  display: inline-block;
+  margin-right: 5px;
+
+}
+#box2{
+  background-color: grey;
+  width: 200px;
+  height: 200px;
+  display: inline-block;
+  margin-right: 5px;
+}
+
+#box3{
+  background-color: grey;
+  width: 200px;
+  height: 200px;
+  display: inline-block;
+  margin-right: 5px;
+}
+#box4{
+  background-color: grey;
+  width: 200px;
+  height: 200px;
+  display: inline-block;
+  margin-right: 5px;
+}
+#box5{
+  background-color: grey;
+  width: 200px;
+  height: 200px;
+  display: inline-block;
+  margin-right: 5px;
+}
+#box6{
+  background-color: grey;
+  width: 200px;
+  height: 200px;
+  display: inline-block;
+  margin-right: 5px;
+
+}
+#box7{
+  background-color: grey;
+  width: 200px;
+  height: 200px;
+  display: inline-block;
+  margin-right: 5px;
+}
+#box8{
+  background-color: grey;
+  width: 200px;
+  height: 200px;
+  display: inline-block;
+  margin-right: 5px;
+}
+#box9{
+  background-color: grey;
+  width: 200px;
+  height: 200px;
+  display: inline-block;
+  margin-right: 5px;
+}
+*/
