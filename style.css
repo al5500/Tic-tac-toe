@@ -1,48 +1,78 @@
-.container{
-  display: inline-table;
-  width: 650px;
-  height: 600px;
+body{
+  background-image: url(atbg.jpg);
+  background-repeat: no-repeat;
+  background-size: 100%;
 
 }
+
+.container{
+  display: inline-table;
+  width: 400px;
+  height: 600px;
+  margin-left: 50px;
+  position: relative;
+  left: 450px;
+}
+
 .box{
-  background-color: olive;
-  width: 200px;
-  height: 200px;
+  background-color: #54BA9E;
+  width: 100px;
+  height: 100px;
   display: inline-block;
   margin-right: 5px;
+  background-image: url(bmo3.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100%;
+  cursor: pointer;
 }
 
 .box:hover{
   opacity: 0.5;
-
 }
 
 h1{
   position: relative;
-  text-align: center;
-  color: green;
+  left: 350px;
+
 }
 #radioButtons{
   position: relative;
-  right: -640px;
+  right: -820px;
   top: -600px;
+}
+.clearBoard {
+  display: block;
+  position: relative;
+  top: 50px;
+
 }
 
 .cross{
-  background-color: red;
-  width: 200px;
-  height: 200px;
+  background-color: #6fdbff;
+  width: 100px;
+  height: 100px;
   display: inline-block;
   margin-right: 5px;
+  background-image: url(finnicon.gif);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 50%;
+
+
 
 }
 
 .naught{
-  background-color: blue;
-  width: 200px;
-  height: 200px;
+  background-color: #ffff33;
+  width: 100px;
+  height: 100px;
   display: inline-block;
   margin-right: 5px;
+  background-image: url(jakeicon.gif);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 50%;
 }
 
 /*
