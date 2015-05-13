@@ -1,14 +1,13 @@
 $(document).ready(function() {
 
-  var board = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+  var board = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
   var player;
   var winsX = 0;
   var winsO = 0;  
 
   $('.box').on('click', function() {
 
-    var posi = $(this).attr('id');
-    posi = posi.charAt(3);
+    var posi = $(this).attr('id').charAt(3);
 
     if (($(this).hasClass("cross")) || ($(this).hasClass("naught"))) {
       return;
@@ -23,43 +22,39 @@ $(document).ready(function() {
       $("#playerX").prop("checked", true);
     }
     board[posi] = player;
-    checkWin();
-
-    noMoreMoves();
+    
+    if (checkWin() === true) {
+      alert("Algebraic! You Won!!!");
+      whoWins();
+    }else if(noMoreMoves() === true) {
+      alert('Game Over Man!');
+    }
   });
 
   var checkWin = function() {
     if ((board[1] === board[2]) && (board[2] === board[3])) {
-      alert('Algebraic! You Won!!!');
-      whoWins();
+      return true;
     }
     if ((board[4] === board[5]) && (board[5] === board[6])) {
-      alert('Algebraic! You Won!!!');
-      whoWins();
+      return true;
     }
     if ((board[7] === board[8]) && (board[8] === board[9])) {
-      alert('Algebraic! You Won!!!');
-      whoWins();
+      return true;
     }
     if ((board[1] === board[4]) && (board[4] === board[7])) {
-      alert('Algebraic! You Won!!!');
-      whoWins();
+      return true;
     }
     if ((board[2] === board[5]) && (board[5] === board[8])) {
-      alert('Algebraic! You Won!!!');
-      whoWins();
+      return true;
     }
     if ((board[3] === board[6]) && (board[6] === board[9])) {
-      alert('Algebraic! You Won!!!');
-      whoWins();
+      return true;
     }
     if ((board[1] === board[5]) && (board[5] === board[9])) {
-      alert('Algebraic! You Won!!!');
-      whoWins();
+      return true;
     }
     if ((board[3] === board[5]) && (board[5] === board[7])) {
-      alert('Algebraic! You Won!!!');
-      whoWins();
+      return true;
     }
   }
 
@@ -75,17 +70,29 @@ $(document).ready(function() {
   }
   var clearBoard = function() {
     $('.container').children().removeClass('naught cross');
-    board = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+    board = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
   }
 
   var noMoreMoves = function() {
     var number = $('.naught').length + $('.cross').length;
     if (number === 9) {
-      return alert('Game Over Man!')
+      return true;
     }
+  }
+  var resetCount = function(){
+    winsX = 0;
+    winsO = 0;
+    $(".finnWin").html('Finn Wins = 0');
+    $(".jakeWin").html('Jake Wins = 0');
   }
 
   $('.clearBoard').on('click', clearBoard);
+ 
+  $('.resetCount').on('click', resetCount);
+
+  var ifNextMovesWin = function (player){
+    
+  }
 
 
 });
