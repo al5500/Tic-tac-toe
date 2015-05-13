@@ -1,6 +1,9 @@
 $(document).ready(function() {
 
   var board = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+  var player;
+  var winsX = 0;
+  var winsO = 0;  
 
   $('.box').on('click', function() {
 
@@ -11,7 +14,7 @@ $(document).ready(function() {
       return;
     }
 
-    var player = $("input:radio:checked").val();
+    player = $("input:radio:checked").val();
     if (player === "playerX") {
       $(this).addClass("cross");
       $("#playerO").prop("checked", true);
@@ -21,33 +24,53 @@ $(document).ready(function() {
     }
     board[posi] = player;
     checkWin();
+
     noMoreMoves();
   });
 
   var checkWin = function() {
     if ((board[1] === board[2]) && (board[2] === board[3])) {
-      return alert('Algebraic! You Won!!!');
+      alert('Algebraic! You Won!!!');
+      whoWins();
     }
     if ((board[4] === board[5]) && (board[5] === board[6])) {
-      return alert('Algebraic! You Won!!!');
+      alert('Algebraic! You Won!!!');
+      whoWins();
     }
     if ((board[7] === board[8]) && (board[8] === board[9])) {
-      return alert('Algebraic! You Won!!!');
+      alert('Algebraic! You Won!!!');
+      whoWins();
     }
     if ((board[1] === board[4]) && (board[4] === board[7])) {
-      return alert('Algebraic! You Won!!!');
+      alert('Algebraic! You Won!!!');
+      whoWins();
     }
     if ((board[2] === board[5]) && (board[5] === board[8])) {
-      return alert('Algebraic! You Won!!!');
+      alert('Algebraic! You Won!!!');
+      whoWins();
     }
     if ((board[3] === board[6]) && (board[6] === board[9])) {
-      return alert('Algebraic! You Won!!!');
+      alert('Algebraic! You Won!!!');
+      whoWins();
     }
     if ((board[1] === board[5]) && (board[5] === board[9])) {
-      return alert('Algebraic! You Won!!!');
+      alert('Algebraic! You Won!!!');
+      whoWins();
     }
     if ((board[3] === board[5]) && (board[5] === board[7])) {
-      return alert('Algebraic! You Won!!!');
+      alert('Algebraic! You Won!!!');
+      whoWins();
+    }
+  }
+
+  var whoWins = function() {
+    if (player === "playerX") {
+      winsX += 1
+      $(".finnWin").html('Finn Wins = '+winsX)
+    }
+    if (player === "playerO") {
+      winsO += 1
+      $(".jakeWin").html('Jake Wins = '+winsO)
     }
   }
   var clearBoard = function() {
