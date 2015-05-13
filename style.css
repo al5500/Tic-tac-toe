@@ -58,6 +58,8 @@ h1{
   background-repeat: no-repeat;
   background-position: center;
   background-size: 50%;
+  transform: rotateY(180deg);
+  transition: all 1.0s linear;
 
 
 
@@ -73,6 +75,8 @@ h1{
   background-repeat: no-repeat;
   background-position: center;
   background-size: 50%;
+  transform: rotateY(180deg);
+  transition: all 1.0s linear;
 }
 
 /*
