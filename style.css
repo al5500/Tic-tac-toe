@@ -27,7 +27,7 @@ body{
 }
 
 .box:hover{
-  opacity: 0.5;
+  opacity: 0.5;3
 }
 
 img{
@@ -58,14 +58,20 @@ img{
   display: block;
   position: absolute;
   top: 300px;
-  right: 400px;
+  right: 430px;
 }
 .resetCount{
   display: block;
   position: absolute;
   top: 300px;
-  right: 280px;
+  right: 325px;
 }
+.nextMove{
+  position: absolute;
+  top: 300px;
+  right: 240px;
+}
+
 
 .cross{
   background-color: #6fdbff;
