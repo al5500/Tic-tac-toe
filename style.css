@@ -2,7 +2,6 @@ body{
   background-image: url(atbg.jpg);
   background-repeat: no-repeat;
   background-size: 115%;
-  /*overflow:hidden;*/
 }
 
 .container{
@@ -44,12 +43,28 @@ img{
   top: 30%;
 }
 
+#firstPlayerOne{
+  position: absolute;
+  top: 230px;
+  left: 125px;
+}
+#secondPlayerOne{
+  position: absolute;
+  top: 260px;
+  left: 125px;
+}
+
 .clearBoard {
   display: block;
   position: absolute;
   top: 300px;
-  right: 330px;
-
+  right: 400px;
+}
+.resetCount{
+  display: block;
+  position: absolute;
+  top: 300px;
+  right: 280px;
 }
 
 .cross{
@@ -101,4 +116,5 @@ img{
 .jake{
   color: yellow;
 }
+
 
