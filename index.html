@@ -8,7 +8,7 @@
   <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-  <h1><img src="tictactoetime3.png"></h1>
+  <img src="tictactoetime3.png">
   <div class="container">
 
   
@@ -23,6 +23,7 @@
     <div id="box9" class="box"></div>
     
 
+<<<<<<< HEAD
 </div>
 <div id="computerPlayer">
   <input id="computerSelect" type ="radio" name="computer" value="computer">
@@ -30,13 +31,27 @@
 
 </div>
 
+=======
+  </div>
+ 
+>>>>>>> gh-pages
    <div id="radioButtons">
-      <label for="a">Finn the human</label>
-      <input id="playerX" type="radio" name="player" value="playerX" checked>
-      
+    <div class="finn">
+    <h2 class="finnWin">Finn Wins = 0</h2>
+    <img id="finnPic" src="finn1.png">
+    <label for="a">Finn the human</label>
+    <input id="playerX" type="radio" name="player"  value="playerX" checked>    
+
+  <div>
+  <div class="jake">
+      <h2 class="jakeWin">Jake Wins = 0</h2>
+      <img id="jakePic" src="jake1.png">
       <label for="b">Jake the dog</label>         
-      <input id="playerO" type="radio" name="player" value="playerO"> 
-      <input class="clearBoard" type='button' value="Clear Board">   
+      <input id="playerO" type="radio" name="player" value="playerO">       
+  </div>
+
+      <input class="resetCount" type="button" value="Reset Count">
+      <input class="clearBoard" type='button' value="Clear Board">  
     </div>
 
 </body>
