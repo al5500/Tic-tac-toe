@@ -14,6 +14,7 @@ $(document).ready(function() {
     if (($(this).hasClass("cross")) || ($(this).hasClass("naught"))) {
       return;
     }
+
     player = $("input[name=player]:radio:checked").val();
     board[posi] = player;
     if (player === "playerX") {
@@ -121,53 +122,25 @@ $(document).ready(function() {
 
     // Check to see if there is a fork
     // with only one on row or col
-    var fork = lineFork(player, 1, 2, 3, 1, 4, 7);
+    var fork = lineForkPlayer(player);
     if(fork > 0){
             return boxAlert(fork);
-    }
-    var fork = lineFork(player, 1, 2, 3, 2, 5, 8);
-    if(fork > 0){
-            return boxAlert(fork);
-    }
-    var fork = lineFork(player, 1, 2, 3, 3, 6, 9);
-    if(fork > 0){
-            return boxAlert(fork);
-    }
-    var fork = lineFork(player, 4, 5, 6, 1, 4, 7);
-    if(fork > 0){
-            return boxAlert(fork);
-    }
-    var fork = lineFork(player, 4, 5, 6, 2, 5, 8);
-    if(fork > 0){
-            return boxAlert(fork);
-    }
-    var fork = lineFork(player, 4, 5, 6, 3, 6, 9);
-    if(fork > 0){
-            return boxAlert(fork);
-    }
-    var fork = lineFork(player, 7, 8, 9, 1, 4, 7);
-    if(fork > 0){
-            return boxAlert(fork);
-    }
-    var fork = lineFork(player, 7, 8, 9, 2, 5, 8);
-    if(fork > 0){
-            return boxAlert(fork);
-    }
-    var fork = lineFork(player, 7, 8, 9, 3, 6, 9);
+    } 
+    fork = lineForkPlayer(nextPlayer);
     if(fork > 0){
             return boxAlert(fork);
     }
        
     
 
-    //Check to see if middle box is empty on the second move, hint to place there
+    //Check to see if middle box is empty on the second move or later
 
     var number = $('.naught').length + $('.cross').length;
-    if (board[5] === 5 && number === 1 ){
+    if (board[5] === '5' && number > 0 ){
       return boxAlert(5);
     }
 
-    alert("dont care");
+    boxAlert(randomNumber19());
 
 
   });
@@ -256,9 +229,9 @@ $(document).ready(function() {
 
 //checks for a fork between a row and col
    var lineFork = function(playerCheck, row1, row2, row3, col1, col2, col3){
-       var rowEmptyCell = lineCheckTwo(player, row1, row2, row3);
+       var rowEmptyCell = lineCheckTwo(playerCheck, row1, row2, row3);
     if(rowEmptyCell > 0){
-      var colEmptyCell = lineCheckTwo(player, col1, col2, col3);
+      var colEmptyCell = lineCheckTwo(playerCheck, col1, col2, col3);
       if( colEmptyCell > 0){
         var commonCell = commonNum(rowEmptyCell, colEmptyCell);
           if(commonCell > 0 ){
@@ -269,6 +242,83 @@ $(document).ready(function() {
       return 0;
    } 
 
+   var lineForkPlayer = function(playerCheck){
+    var fork = lineFork(playerCheck, 1, 2, 3, 1, 4, 7);
+    if(fork > 0){
+            return fork;
+    }
+    var fork = lineFork(playerCheck, 1, 2, 3, 2, 5, 8);
+    if(fork > 0){
+            return fork;
+    }
+    var fork = lineFork(playerCheck, 1, 2, 3, 3, 6, 9);
+    if(fork > 0){
+            return fork;
+    }
+    var fork = lineFork(playerCheck, 1, 2, 3, 1, 5, 9);
+    if(fork > 0){
+            return fork;
+    }
+    var fork = lineFork(playerCheck, 1, 2, 3, 3, 5, 7);
+    if(fork > 0){
+            return fork;
+    }
+    var fork = lineFork(playerCheck, 4, 5, 6, 1, 4, 7);
+    if(fork > 0){
+            return fork;
+    }
+    var fork = lineFork(playerCheck, 4, 5, 6, 2, 5, 8);
+    if(fork > 0){
+            return fork;
+    }
+    var fork = lineFork(playerCheck, 4, 5, 6, 3, 6, 9);
+    if(fork > 0){
+            return fork;
+    }
+    var fork = lineFork(playerCheck, 4, 5, 6, 1, 5, 9);
+    if(fork > 0){
+            return fork;
+    }
+    var fork = lineFork(playerCheck, 4, 5, 6, 3, 5, 7);
+    if(fork > 0){
+            return fork;
+    }
+    var fork = lineFork(playerCheck, 7, 8, 9, 1, 4, 7);
+    if(fork > 0){
+            return fork;
+    }
+    var fork = lineFork(playerCheck, 7, 8, 9, 2, 5, 8);
+    if(fork > 0){
+            return fork;
+    }
+    var fork = lineFork(playerCheck, 7, 8, 9, 3, 6, 9);
+    if(fork > 0){
+            return fork;
+    }
+    var fork = lineFork(playerCheck, 7, 8, 9, 1, 5, 9);
+    if(fork > 0){
+            return fork;
+    }
+    var fork = lineFork(playerCheck, 7, 8, 9, 3, 5, 7);
+    if(fork > 0){
+            return fork;
+    }
+    return 0;
+
+   }
+
+   var randomNumber19 = function(){
+    var num = 0;
+    while (num === 0){ 
+      num = Math.floor((Math.random() * 10));
+      if(num > 0){
+        if(board[num].length < 2){
+          return num;
+        }
+        num = 0;
+      }
+    }
+  };
   
   
   // Returns the common number for a row or col 
