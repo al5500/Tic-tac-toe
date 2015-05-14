@@ -3,7 +3,8 @@ $(document).ready(function() {
   var board = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
   var player;
   var winsX = 0;
-  var winsO = 0;  
+  var winsO = 0; 
+  var nextPlayer; 
 
   $('.box').on('click', function() {
 
@@ -16,9 +17,11 @@ $(document).ready(function() {
     player = $("input:radio:checked").val();
     if (player === "playerX") {
       $(this).addClass("cross");
+      nextPlayer = 'playerO';
       $("#playerO").prop("checked", true);
     } else {
       $(this).addClass("naught");
+      nextPlayer = 'playerX';
       $("#playerX").prop("checked", true);
     }
     board[posi] = player;
@@ -28,7 +31,10 @@ $(document).ready(function() {
       whoWins();
     }else if(noMoreMoves() === true) {
       alert('Game Over Man!');
-    }
+     return;
+   };
+   alert(ifNextMoveWins(nextPlayer));
+
   });
 
   var checkWin = function() {
@@ -90,7 +96,20 @@ $(document).ready(function() {
  
   $('.resetCount').on('click', resetCount);
 
-  var ifNextMovesWin = function (player){
+  var ifNextMoveWins = function (playerCheck){
+    var line = board[1] + board[2] + board[3];
+    if (line.length === 15){
+      var firstIndex = line.indexOf(playerCheck);
+      if (firstIndex >= 0){
+        var lastIndex = line.lastIndexOf(playerCheck);
+        if (firstIndex != lastIndex) {
+          line = line.replace(playerCheck, "");
+          line = line.replace(playerCheck, "");
+          return parseInt(line);
+        }
+      }
+    }
+    return 0;
     
   }
 
