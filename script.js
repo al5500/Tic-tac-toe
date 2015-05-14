@@ -33,7 +33,10 @@ $(document).ready(function() {
       alert('Game Over Man!');
      return;
    };
-   alert(ifNextMoveWins(nextPlayer));
+   var nextBox = ifNextMoveWins(nextPlayer);
+   if (nextBox > 0){
+    alert ('Move to ' + nextBox);
+   }
 
   });
 
@@ -97,7 +100,44 @@ $(document).ready(function() {
   $('.resetCount').on('click', resetCount);
 
   var ifNextMoveWins = function (playerCheck){
-    var line = board[1] + board[2] + board[3];
+    var nextBox;
+    nextBox = lineCheck(playerCheck, 1, 2, 3);
+    if(nextBox > 0){
+      return nextBox;
+    }
+    nextBox = lineCheck(playerCheck, 4, 5, 6);
+    if(nextBox > 0){
+      return nextBox;
+    }
+    nextBox = lineCheck(playerCheck, 7, 8, 9);
+    if(nextBox > 0){
+      return nextBox;
+    }
+    nextBox = lineCheck(playerCheck, 1, 4, 7);
+    if(nextBox > 0){
+      return nextBox;
+    }
+    nextBox = lineCheck(playerCheck, 2, 5, 8);
+    if(nextBox > 0){
+      return nextBox;
+    }
+    nextBox = lineCheck(playerCheck, 3, 6, 9);
+    if(nextBox > 0){
+      return nextBox;
+    }
+    nextBox = lineCheck(playerCheck, 1, 5, 9);
+    if(nextBox > 0){
+      return nextBox;
+    }
+    nextBox = lineCheck(playerCheck, 3, 5, 7);
+    if(nextBox > 0){
+      return nextBox;
+    }
+    return 0;
+  }
+
+  var lineCheck = function (playerCheck, box1, box2, box3){
+     var line = board[box1] + board[box2] + board[box3];
     if (line.length === 15){
       var firstIndex = line.indexOf(playerCheck);
       if (firstIndex >= 0){
@@ -110,8 +150,7 @@ $(document).ready(function() {
       }
     }
     return 0;
-    
-  }
 
+  };
 
 });
